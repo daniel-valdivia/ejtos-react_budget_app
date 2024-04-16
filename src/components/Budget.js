@@ -9,6 +9,7 @@ const Budget = () => {
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
+    const { currency } = useContext(AppContext);
 
     // Update local state when budget changes in context
     useEffect(() => {
@@ -37,7 +38,7 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: { currency }</span>
             <input
                 type="number"
                 step="10"
