@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
     const { currency, dispatch } = useContext(AppContext);
-    const [ newCurrency, setNewCurrency ] = useState(currency);
+    const [ newCurrency,setNewCurrency ] = useState(currency);
 
     useEffect(() => {
         setNewCurrency(currency);
@@ -16,9 +16,9 @@ const Currency = () => {
     }
 
     return (
-        <div className='alert alert-secondary'>
+        <div className='alert alert-success'>
             <span>Currency:</span>
-            <select className='custom-select' id='select-currency' onChange={handleCurrencyChange}>
+            <select className='custom-select green-select' id='select-currency' onChange={handleCurrencyChange} style={{backgroundColor: '#d1e7dd'}}>
                 <option defaultvalue value='£' name='Pound'>£ Pound</option>
                 <option value='$' name='Dollar'>$ Dollar</option>
                 <option value='€' name='Euro'>€ Euro</option>

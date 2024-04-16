@@ -19,11 +19,23 @@ const ExpenseItem = (props) => {
             payload: expense
         });
     }
+    const decreaseAllocation = (name) => {
+        const expense = {
+            name: name,
+            cost: 10,
+        };
+        dispatch({
+            type: 'RED_EXPENSE',
+            payload: expense
+        });
+    }
+    const { currency } = useContext(AppContext);
     return (
         <tr>
         <td>{props.name}</td>
-        <td>£{props.cost}</td>
-        <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
+        <td>{ currency }{props.cost}</td>
+        <td><button style={{backgroundColor: 'green', color: 'white', border: 'none', borderRadius: '25px'}} onClick={event=> increaseAllocation(props.name)}>+</button></td>
+        <td><button style={{backgroundColor: 'red', color: 'white', border: 'none', borderRadius: '25px'}}onClick={event=> decreaseAllocation(props.name)}>-</button></td>
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );
